@@ -6,5 +6,5 @@ import reactor.core.publisher.Mono;
 
 @FunctionalInterface
 public interface ICreatePlayer {
-    Mono<String> apply(PlayerDTO playerDTO);
+    Mono<PlayerDTO> apply(PlayerDTO playerDTO);
 }

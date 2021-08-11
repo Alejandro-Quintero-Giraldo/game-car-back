@@ -21,7 +21,7 @@ public class CreatePlayerRouter {
                 request -> request.bodyToMono(PlayerDTO.class)
                         .flatMap(playerDTO -> createPlayerUseCase.apply(playerDTO)
                                 .flatMap(result -> ServerResponse.ok()
-                                        .contentType(MediaType.TEXT_PLAIN)
+                                        .contentType(MediaType.APPLICATION_JSON)
                                         .bodyValue(result)
                                 )
                        )

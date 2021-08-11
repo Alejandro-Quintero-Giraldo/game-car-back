@@ -15,6 +15,7 @@ public class PlayerMapper {
 
     public Function<PlayerDTO, Player> mapperToPlayer(String id){
         return updatePlayer -> new Player(
+
                 PlayerId.of(id),
                 new Name(updatePlayer.getName()),
                 new QuantityWinnerPosition(updatePlayer.getFirstPlace()),
