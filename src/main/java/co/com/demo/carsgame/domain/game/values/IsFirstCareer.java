@@ -7,6 +7,6 @@ import lombok.Getter;
 @AllArgsConstructor
 public class IsFirstCareer {
 
-    private Boolean value;
+    private final Boolean value;
 
 }

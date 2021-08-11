@@ -7,9 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Advance {
 
-    private Integer value;
+    private final Integer value;
 
-    public void incrementAdvance(Integer value){
-        this.value = this.getValue()+value;
+    public Advance incrementAdvance(Integer value){
+       return new Advance(value);
     }
 }

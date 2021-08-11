@@ -7,9 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public class QuantityWinnerPosition {
 
-    private Integer value;
+    private final Integer value;
 
-    public void incrementValue(){
-        this.value = this.getValue()+1;
+    public QuantityWinnerPosition incrementValue(Integer value) {
+        return new QuantityWinnerPosition(value);
     }
 }

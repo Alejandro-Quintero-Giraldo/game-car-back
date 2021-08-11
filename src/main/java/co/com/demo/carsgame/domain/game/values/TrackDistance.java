@@ -7,6 +7,6 @@ import lombok.Getter;
 @AllArgsConstructor
 public class TrackDistance {
 
-    private Integer value;
+    private final Integer value;
 
 }

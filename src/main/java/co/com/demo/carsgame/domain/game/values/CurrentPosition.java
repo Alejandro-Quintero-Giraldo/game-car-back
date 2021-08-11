@@ -7,10 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public class CurrentPosition {
 
-    private Integer value;
+    private final Integer value;
 
-    public void updateCurrentPosition(Integer value){
-        this.value = this.getValue() + value;
+    public CurrentPosition updateCurrentPosition(Integer value){
+        return new CurrentPosition(value);
     }
 
     public CurrentPosition initializeCurrentPosition(){

@@ -7,5 +7,5 @@ import lombok.Getter;
 @Getter
 public class Name {
 
-    private String value;
+    private final String value;
 }

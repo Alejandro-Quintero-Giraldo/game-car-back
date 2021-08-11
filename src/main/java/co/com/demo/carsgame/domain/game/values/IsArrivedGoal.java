@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class IsArrivedGoal {
 
-    private Boolean value;
+    private final Boolean value;
 
     public static IsArrivedGoal trueValue(){
         return new IsArrivedGoal(Boolean.TRUE);
