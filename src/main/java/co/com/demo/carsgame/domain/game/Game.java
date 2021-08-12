@@ -19,5 +19,5 @@ public class Game {
     private GameId gameId;
     private List<Player> players;
     private IsFirstCareer isFirstCareer;
-    private List<Track>  tracks;
+
 }

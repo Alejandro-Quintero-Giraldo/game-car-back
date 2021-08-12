@@ -18,5 +18,5 @@ public class GameDTO {
     private String gameId;
     private List<Player> players;
     private Boolean isFirstCareer;
-    private List<Track>  tracks;
+
 }

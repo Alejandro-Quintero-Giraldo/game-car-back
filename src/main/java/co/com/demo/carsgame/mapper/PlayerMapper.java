@@ -4,6 +4,7 @@ import co.com.demo.carsgame.domain.game.Player;
 import co.com.demo.carsgame.domain.game.values.Name;
 import co.com.demo.carsgame.domain.game.values.QuantityWinnerPosition;
 import co.com.demo.carsgame.domain.game.values.id.CarId;
+import co.com.demo.carsgame.domain.game.values.id.GameId;
 import co.com.demo.carsgame.domain.game.values.id.PlayerId;
 import co.com.demo.carsgame.dto.PlayerDTO;
 import org.springframework.stereotype.Component;
@@ -15,13 +16,13 @@ public class PlayerMapper {
 
     public Function<PlayerDTO, Player> mapperToPlayer(String id){
         return updatePlayer -> new Player(
-
                 PlayerId.of(id),
                 new Name(updatePlayer.getName()),
                 new QuantityWinnerPosition(updatePlayer.getFirstPlace()),
                 new QuantityWinnerPosition(updatePlayer.getSecondPlace()),
                 new QuantityWinnerPosition(updatePlayer.getThirdPlace()),
-                CarId.of(updatePlayer.getCarId())
+                CarId.of(updatePlayer.getCarId()),
+                GameId.of(updatePlayer.getGameId())
         );
     }
 
@@ -32,7 +33,8 @@ public class PlayerMapper {
                 player.getFirstPlace().getValue(),
                 player.getSecondPlace().getValue(),
                 player.getThirdPlace().getValue(),
-                player.getCarId().getValue()
+                player.getCarId().getValue(),
+                player.getGameId().getValue()
         );
     }
 }
