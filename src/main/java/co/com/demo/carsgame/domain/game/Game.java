@@ -20,4 +20,5 @@ public class Game {
     private List<Player> players;
     private IsFirstCareer isFirstCareer;
 
+
 }
