@@ -17,7 +17,7 @@ class CreatePlayerUseCaseTest {
     @Test
     void createPlayer(){
         PlayerDTO playerInput =
-                new PlayerDTO("1", "Sebas", 0,0,0,"1" );
+                new PlayerDTO("1", "Sebas", 0,0,0,"1", "1");
 
         Mono<PlayerDTO> playerDTO = createPlayerUseCase.apply(playerInput);
 
