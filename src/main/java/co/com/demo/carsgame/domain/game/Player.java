@@ -2,7 +2,6 @@ package co.com.demo.carsgame.domain.game;
 
 import co.com.demo.carsgame.domain.game.values.Name;
 import co.com.demo.carsgame.domain.game.values.QuantityWinnerPosition;
-import co.com.demo.carsgame.domain.game.values.id.CarId;
 import co.com.demo.carsgame.domain.game.values.id.GameId;
 import co.com.demo.carsgame.domain.game.values.id.PlayerId;
 import lombok.AllArgsConstructor;
@@ -23,6 +22,5 @@ public class Player {
     private QuantityWinnerPosition firstPlace;
     private QuantityWinnerPosition secondPlace;
     private QuantityWinnerPosition thirdPlace;
-    private CarId carId;
     private GameId gameId;
 }

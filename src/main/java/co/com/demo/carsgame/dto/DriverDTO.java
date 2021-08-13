@@ -15,4 +15,5 @@ public class DriverDTO {
     private final Integer position;
     private final String playerId;
     private final String railId;
+    private final String carId;
 }

@@ -1,10 +1,9 @@
 package co.com.demo.carsgame.domain.game;
 
+import co.com.demo.carsgame.domain.game.values.Advance;
+import co.com.demo.carsgame.domain.game.values.CurrentPosition;
 import co.com.demo.carsgame.domain.game.values.IsArrivedGoal;
-import co.com.demo.carsgame.domain.game.values.id.CarId;
-import co.com.demo.carsgame.domain.game.values.id.GameId;
-import co.com.demo.carsgame.domain.game.values.id.PlayerId;
-import co.com.demo.carsgame.domain.game.values.id.RailId;
+import co.com.demo.carsgame.domain.game.values.id.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +19,9 @@ public class Car {
     @Id
     private CarId id;
     private IsArrivedGoal isArrivedGoal;
-    private PlayerId playerId;
+    private CurrentPosition currentPosition;
+    private Advance advance;
+    private DriverId driverId;
     private GameId gameId;
     private RailId railId;
 

@@ -18,6 +18,5 @@ public class PlayerDTO {
     private Integer firstPlace;
     private Integer secondPlace;
     private Integer thirdPlace;
-    private String carId;
     private String gameId;
 }

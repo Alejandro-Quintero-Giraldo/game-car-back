@@ -1,6 +1,7 @@
 package co.com.demo.carsgame.domain.game;
 
 import co.com.demo.carsgame.domain.game.values.Position;
+import co.com.demo.carsgame.domain.game.values.id.CarId;
 import co.com.demo.carsgame.domain.game.values.id.DriverId;
 import co.com.demo.carsgame.domain.game.values.id.PlayerId;
 import co.com.demo.carsgame.domain.game.values.id.RailId;
@@ -20,5 +21,6 @@ public class Driver {
     private final Position position;
     private final PlayerId playerId;
     private final RailId railId;
+    private final CarId carId;
 
 }

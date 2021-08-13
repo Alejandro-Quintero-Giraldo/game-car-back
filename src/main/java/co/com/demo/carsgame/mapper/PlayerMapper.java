@@ -3,7 +3,6 @@ package co.com.demo.carsgame.mapper;
 import co.com.demo.carsgame.domain.game.Player;
 import co.com.demo.carsgame.domain.game.values.Name;
 import co.com.demo.carsgame.domain.game.values.QuantityWinnerPosition;
-import co.com.demo.carsgame.domain.game.values.id.CarId;
 import co.com.demo.carsgame.domain.game.values.id.GameId;
 import co.com.demo.carsgame.domain.game.values.id.PlayerId;
 import co.com.demo.carsgame.dto.PlayerDTO;
@@ -21,7 +20,6 @@ public class PlayerMapper {
                 new QuantityWinnerPosition(updatePlayer.getFirstPlace()),
                 new QuantityWinnerPosition(updatePlayer.getSecondPlace()),
                 new QuantityWinnerPosition(updatePlayer.getThirdPlace()),
-                CarId.of(updatePlayer.getCarId()),
                 GameId.of(updatePlayer.getGameId())
         );
     }
@@ -33,7 +31,6 @@ public class PlayerMapper {
                 player.getFirstPlace().getValue(),
                 player.getSecondPlace().getValue(),
                 player.getThirdPlace().getValue(),
-                player.getCarId().getValue(),
                 player.getGameId().getValue()
         );
     }

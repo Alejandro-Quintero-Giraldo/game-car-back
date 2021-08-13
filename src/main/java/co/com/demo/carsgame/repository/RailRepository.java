@@ -1,9 +1,10 @@
 package co.com.demo.carsgame.repository;
 
-import co.com.demo.carsgame.dto.PodiumDTO;
+import co.com.demo.carsgame.domain.game.Rail;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
-public interface PodiumDTORepository extends ReactiveMongoRepository<PodiumDTO, String> {
+public interface RailRepository extends ReactiveMongoRepository<Rail, String> {
 }

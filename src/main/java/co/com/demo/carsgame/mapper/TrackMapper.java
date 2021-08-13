@@ -17,7 +17,6 @@ public class TrackMapper {
         return  updateTrack -> new Track(
                 TrackId.of(id),
                 new TrackDistance(updateTrack.getTrackDistance()),
-                updateTrack.getRails(),
                 GameId.of(updateTrack.getGameId()),
                 PodiumId.of(updateTrack.getPodiumId())
         );
@@ -27,7 +26,6 @@ public class TrackMapper {
         return track -> new TrackDTO(
                 track.getTrackId().getValue(),
                 track.getTrackDistance().getValue(),
-                track.getRails(),
                 track.getGameId().getValue(),
                 track.getPodiumId().getValue()
         );

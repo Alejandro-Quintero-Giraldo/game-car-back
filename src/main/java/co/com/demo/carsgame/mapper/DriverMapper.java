@@ -17,7 +17,8 @@ public class DriverMapper {
                 DriverId.of(id),
                 new Position(updateDriver.getPosition()),
                 PlayerId.of(updateDriver.getPlayerId()),
-                RailId.of(updateDriver.getRailId())
+                RailId.of(updateDriver.getRailId()),
+                CarId.of(updateDriver.getCarId())
         );
     }
 
@@ -26,7 +27,8 @@ public class DriverMapper {
                 driver.getDriverId().getValue(),
                 driver.getPosition().getValue(),
                 driver.getPlayerId().getValue(),
-                driver.getRailId().getValue()
+                driver.getRailId().getValue(),
+                driver.getCarId().getValue()
         );
     }
 }

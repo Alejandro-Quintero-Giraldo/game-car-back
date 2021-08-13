@@ -14,10 +14,8 @@ public class RailDTO {
 
     @Id
     private String railId;
-    private Integer currentPosition;
-    private Integer advance;
     private String carId;
     private String gameId;
     private String trackId;
-    private String playerId;
+    private String driverId;
 }

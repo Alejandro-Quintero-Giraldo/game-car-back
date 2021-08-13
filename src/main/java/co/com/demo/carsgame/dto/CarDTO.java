@@ -15,7 +15,9 @@ public class CarDTO {
     @Id
     private String id;
     private Boolean isArrivedGoal;
-    private String playerId;
+    private Integer currentPosition;
+    private Integer advance;
+    private String driverId;
     private String gameId;
     private String railId;
 
