@@ -9,13 +9,13 @@ import reactor.core.publisher.Flux;
 
 @Service
 @Validated
-public class FindRailsByTrackIdUseCase {
+public class GetRailsByTrackIdUseCase {
 
-    private RailRepository railRepository;
+    private final RailRepository railRepository;
 
 
     @Autowired
-    public FindRailsByTrackIdUseCase(RailRepository repositoryRail) {
+    public GetRailsByTrackIdUseCase(RailRepository repositoryRail) {
         this.railRepository = repositoryRail;
     }
 

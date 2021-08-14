@@ -16,7 +16,7 @@ public class FindByIdTrackRouter {
 
     @Bean
     public RouterFunction<ServerResponse> getfindbyidtrack(FindByIdTrackUseCase findByIdTrackUseCase){
-        return route(GET("findTrackById/{id}").and(accept(MediaType.APPLICATION_JSON)),
+        return route(GET("/track/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request-> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(findByIdTrackUseCase.getfindbyid(request.pathVariable("id")), TrackDTO.class)

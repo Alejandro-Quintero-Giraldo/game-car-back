@@ -15,7 +15,7 @@ public class EditPlayerRouter {
 
     @Bean
     public RouterFunction<ServerResponse> modifyPlayer(EditPlayerUseCase editPlayerUseCase){
-        return route(PUT("/modifyPlayer").and(accept(MediaType.APPLICATION_JSON)),
+        return route(PUT("/player/edit").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(PlayerDTO.class)
                         .flatMap(playerDTO -> editPlayerUseCase.modifyPlayer(playerDTO)
                                 .flatMap(result-> ServerResponse.ok()

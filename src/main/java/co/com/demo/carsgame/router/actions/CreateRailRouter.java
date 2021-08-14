@@ -16,7 +16,7 @@ public class CreateRailRouter {
 
     @Bean
     public RouterFunction<ServerResponse> createRail(CreateRailUseCase createRailUseCase) {
-        return route(POST("/createRail").and(accept(MediaType.APPLICATION_JSON)),
+        return route(POST("/rail/create").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(RailDTO.class)
                         .flatMap(railDTO -> createRailUseCase.createRail(railDTO)
                                 .flatMap(result -> ServerResponse.ok()

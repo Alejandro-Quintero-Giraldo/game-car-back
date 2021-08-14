@@ -18,7 +18,7 @@ public class FindByIdRailRouter {
 
     @Bean
     public RouterFunction<ServerResponse> getfindbyidrail(FindByIdRailUseCase findByIdRailUseCase){
-        return route(GET("findByRailId/{id}").and(accept(MediaType.APPLICATION_JSON)),
+        return route(GET("/rail/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request-> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(findByIdRailUseCase.getfindbyid(request.pathVariable("id")), RailDTO.class)

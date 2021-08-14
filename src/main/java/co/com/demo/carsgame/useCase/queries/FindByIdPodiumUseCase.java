@@ -1,4 +1,4 @@
-package co.com.demo.carsgame.useCase.actions;
+package co.com.demo.carsgame.useCase.queries;
 
 import co.com.demo.carsgame.dto.PodiumDTO;
 import co.com.demo.carsgame.repository.PodiumRepository;
@@ -9,17 +9,15 @@ import reactor.core.publisher.Mono;
 
 @Service
 @Validated
-public class CreatePodiumUseCase {
+public class FindByIdPodiumUseCase {
 
     private final PodiumRepository podiumRepository;
 
-
     @Autowired
-    public CreatePodiumUseCase(PodiumRepository podiumRepository){
-        this.podiumRepository = podiumRepository;
-    }
-    public Mono<PodiumDTO> apply(PodiumDTO podiumDTO){
-        return podiumRepository.save(podiumDTO)
-                .thenReturn(podiumDTO);
+    public FindByIdPodiumUseCase(PodiumRepository podiumRepository){
+        this.podiumRepository = podiumRepository ;  }
+
+    public Mono<PodiumDTO> getfindbyid(String id){
+        return podiumRepository.findById(id);
     }
 }

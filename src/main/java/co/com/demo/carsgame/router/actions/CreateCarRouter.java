@@ -15,7 +15,7 @@ public class CreateCarRouter {
 
     @Bean
     public RouterFunction<ServerResponse> CreateCarRouter(CreateCarUseCase createCarUseCase){
-        return  route(POST("/createCar").and(accept(MediaType.APPLICATION_JSON)),
+        return  route(POST("/car/create").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(CarDTO.class)
                         .flatMap(carDTO -> createCarUseCase.createCar(carDTO)
                                 .flatMap(result -> ServerResponse.ok()

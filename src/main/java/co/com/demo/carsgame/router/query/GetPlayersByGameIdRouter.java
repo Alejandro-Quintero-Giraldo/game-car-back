@@ -18,7 +18,7 @@ public class GetPlayersByGameIdRouter {
 
     @Bean
     public RouterFunction<ServerResponse> getPlayersByGameId(GetPlayersByGameIdUseCase getPlayersByGameIdUseCase){
-        return route(GET("/get/players/game/id/{gameid}").and(accept(MediaType.TEXT_PLAIN)),
+        return route(GET("/players/game/{gameid}").and(accept(MediaType.TEXT_PLAIN)),
                 request -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromPublisher(getPlayersByGameIdUseCase.getPlayersByGameId(request.pathVariable("gameid")), PlayerDTO.class))

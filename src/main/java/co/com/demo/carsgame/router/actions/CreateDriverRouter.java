@@ -16,7 +16,7 @@ public class CreateDriverRouter {
 
     @Bean
     public RouterFunction<ServerResponse> createDriver(CreateDriverUseCase createDriverUseCase){
-        return  route(POST("/create/driver").and(accept(MediaType.APPLICATION_JSON)),
+        return  route(POST("/driver/create").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(DriverDTO.class)
                         .flatMap(driverDTO -> createDriverUseCase.apply(driverDTO)
                                 .flatMap(result -> ServerResponse.ok()

@@ -10,12 +10,12 @@ import reactor.core.publisher.Mono;
 
 @Service
 @Validated
-public class FindByGameIdUseCase {
+public class FindByIdGameUseCase {
 
     private final GameRepository gameRepository;
 
     @Autowired
-    public FindByGameIdUseCase(GameRepository gameRepository) {
+    public FindByIdGameUseCase(GameRepository gameRepository) {
         this.gameRepository = gameRepository;
     }
 

@@ -19,7 +19,7 @@ public class FindByIdPlayerRouter {
 
     @Bean
     public RouterFunction<ServerResponse> findByIdPlayer(FindByIdPlayerUseCase findByIdPlayerUseCase){
-        return route(GET("/findPlayerById/{id}").and(accept(MediaType.APPLICATION_JSON)),
+        return route(GET("/player/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request-> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromPublisher(findByIdPlayerUseCase.findById(request.pathVariable("id")), PlayerDTO.class))

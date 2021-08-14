@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 @Validated
 public class FindByIdRailUseCase {
 
-    private RailRepository railRepository;
+    private final RailRepository railRepository;
 
     public FindByIdRailUseCase(RailRepository repositoryRail) {
         this.railRepository = repositoryRail;

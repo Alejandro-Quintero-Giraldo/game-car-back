@@ -16,7 +16,7 @@ public class CreatePlayerRouter {
 
     @Bean
     public RouterFunction<ServerResponse> createPlayer(CreatePlayerUseCase createPlayerUseCase){
-        return route(POST("/createPlayer").and(accept(MediaType.APPLICATION_JSON)),
+        return route(POST("/player/create").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(PlayerDTO.class)
                         .flatMap(playerDTO -> createPlayerUseCase.apply(playerDTO)
                                 .flatMap(result -> ServerResponse.ok()

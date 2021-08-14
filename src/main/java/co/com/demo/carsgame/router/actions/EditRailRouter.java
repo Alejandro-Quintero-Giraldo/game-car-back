@@ -16,7 +16,7 @@ public class EditRailRouter {
 
     @Bean
     public RouterFunction<ServerResponse> editRail(EditRailUseCase editRailUseCase) {
-        return route(PUT("/editRail").and(accept(MediaType.APPLICATION_JSON)),
+        return route(PUT("/rail/edit").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(RailDTO.class)
                         .flatMap(railDTO -> editRailUseCase.apply(railDTO)
                                 .flatMap(result -> ServerResponse.ok()

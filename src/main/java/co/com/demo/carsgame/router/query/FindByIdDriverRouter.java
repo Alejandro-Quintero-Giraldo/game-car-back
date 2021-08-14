@@ -17,7 +17,7 @@ public class FindByIdDriverRouter {
 
     @Bean
     public RouterFunction<ServerResponse> findByIdDriver(FindByIdDriverUseCase findByIdDriverUseCase){
-        return route(GET("/findDriverById/{id}").and(accept(MediaType.APPLICATION_JSON)),
+        return route(GET("/driver/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request-> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromPublisher(findByIdDriverUseCase.findById(request.pathVariable("id")), DriverDTO.class))

@@ -11,12 +11,12 @@ import reactor.core.publisher.Flux;
 
 @Service
 @Validated
-public class FindCarsByDriverIdUseCase {
+public class GetCarByDriverIdUseCase {
 
     private final CarRepository carRepository;
 
     @Autowired
-    public FindCarsByDriverIdUseCase(CarRepository carRepository) {
+    public GetCarByDriverIdUseCase(CarRepository carRepository) {
         this.carRepository = carRepository;
     }
 

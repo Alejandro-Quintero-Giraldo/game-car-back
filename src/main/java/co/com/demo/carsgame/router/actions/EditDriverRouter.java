@@ -16,7 +16,7 @@ public class EditDriverRouter {
 
     @Bean
     public RouterFunction<ServerResponse> modifyDriver(EditDriverUseCase editDriverUseCase){
-        return route(PUT("/modifyDriver").and(accept(MediaType.APPLICATION_JSON)),
+        return route(PUT("/driver/edit").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(DriverDTO.class)
                         .flatMap(driverDTO -> editDriverUseCase.modifyDriver(driverDTO)
                                 .flatMap(result-> ServerResponse.ok()

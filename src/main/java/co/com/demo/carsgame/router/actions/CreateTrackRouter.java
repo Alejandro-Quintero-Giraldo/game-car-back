@@ -17,7 +17,7 @@ public class CreateTrackRouter {
 
     @Bean
     public RouterFunction<ServerResponse> createTrack(CreateTrackUseCase createTrackUseCase) {
-        return route(POST("/createTrack").and(accept(MediaType.APPLICATION_JSON)),
+        return route(POST("/track/create").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(TrackDTO.class)
                         .flatMap(trackDTO -> createTrackUseCase.apply(trackDTO)
                                 .flatMap(result -> ServerResponse.ok()

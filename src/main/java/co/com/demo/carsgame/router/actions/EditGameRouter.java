@@ -16,7 +16,7 @@ public class EditGameRouter {
 
     @Bean
     public RouterFunction<ServerResponse> modifyGame(EditGameUseCase editGameUseCase){
-        return route(PUT("/modifyGame").and(accept(MediaType.APPLICATION_JSON)),
+        return route(PUT("/game/edit").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(GameDTO.class)
                         .flatMap(gameDTO -> editGameUseCase.modifyGame(gameDTO)
                                 .flatMap(result-> ServerResponse.ok()

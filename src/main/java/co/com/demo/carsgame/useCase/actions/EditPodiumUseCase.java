@@ -9,16 +9,17 @@ import reactor.core.publisher.Mono;
 
 @Service
 @Validated
-public class CreatePodiumUseCase {
+public class EditPodiumUseCase {
 
     private final PodiumRepository podiumRepository;
 
-
     @Autowired
-    public CreatePodiumUseCase(PodiumRepository podiumRepository){
+    public EditPodiumUseCase(PodiumRepository podiumRepository) {
         this.podiumRepository = podiumRepository;
+
     }
-    public Mono<PodiumDTO> apply(PodiumDTO podiumDTO){
+
+    public Mono<PodiumDTO> apply(PodiumDTO podiumDTO) {
         return podiumRepository.save(podiumDTO)
                 .thenReturn(podiumDTO);
     }
