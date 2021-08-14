@@ -25,6 +25,5 @@ public class CreateCarUseCase {
         return carRepository
                 .save(carDTO)
                 .thenReturn(carDTO);
-
     }
 }

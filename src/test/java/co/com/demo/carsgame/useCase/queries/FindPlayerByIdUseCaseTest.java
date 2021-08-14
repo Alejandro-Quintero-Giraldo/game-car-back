@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FindPlayerByIdUseCaseTest {
 
     @Autowired
-    FindPlayerByIdUseCase findPlayerByIdUseCase;
+    FindByIdPlayerUseCase findPlayerByIdUseCase;
 
     @Test
     void findByIdPlayer(){
