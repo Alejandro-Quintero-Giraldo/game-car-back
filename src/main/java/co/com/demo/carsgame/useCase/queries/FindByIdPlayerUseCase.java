@@ -1,4 +1,4 @@
-package co.com.demo.carsgame.useCase.actions;
+package co.com.demo.carsgame.useCase.queries;
 
 import co.com.demo.carsgame.dto.PlayerDTO;
 import co.com.demo.carsgame.mapper.PlayerMapper;
@@ -10,22 +10,19 @@ import reactor.core.publisher.Mono;
 
 @Service
 @Validated
-public class EditPlayerUseCase {
+public class FindByIdPlayerUseCase {
 
     private final PlayerRepository playerRepository;
     private final PlayerMapper playerMapper;
 
     @Autowired
-    public EditPlayerUseCase(PlayerRepository playerRepository, PlayerMapper playerMapper) {
+    public FindByIdPlayerUseCase(PlayerRepository playerRepository, PlayerMapper playerMapper) {
         this.playerRepository = playerRepository;
         this.playerMapper = playerMapper;
     }
 
-    public Mono<PlayerDTO> modifyPlayer(PlayerDTO playerDTO){
-        return
-                playerRepository.save(playerDTO)
-                        .thenReturn(playerDTO);
 
+    public Mono<PlayerDTO> findById(String id) {
+        return playerRepository.findById(id);
     }
-
 }

@@ -22,8 +22,7 @@ public class CreateGameUseCase {
     }
 
     public Mono<GameDTO> createGame(GameDTO gameDTO){
-        return gameRepository.save(gameMapper.mapperToGame(gameDTO.getGameId())
-                .apply(gameDTO))
+        return gameRepository.save(gameDTO)
                 .thenReturn(gameDTO);
     }
 }

@@ -1,8 +1,7 @@
-package co.com.demo.carsgame.router;
+package co.com.demo.carsgame.router.query;
 
 import co.com.demo.carsgame.dto.PlayerDTO;
-import co.com.demo.carsgame.useCase.queries.FindAllPlayerUseCase;
-import co.com.demo.carsgame.useCase.queries.GetPlayersByGameIdUseCase;
+import co.com.demo.carsgame.useCase.queries.FindPlayerByIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -14,16 +13,18 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
-
 @Configuration
-public class FindAllPlayerRouter {
+public class FindPlayerByIdRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> findAll(FindAllPlayerUseCase findAllPlayerUseCase){
-        return route(GET("/get/players").and(accept(MediaType.APPLICATION_JSON)),
+    public RouterFunction<ServerResponse> getPlayerById(FindPlayerByIdUseCase findPlayerByIdUseCase){
+        return  route(GET("/get/player/by/id/{playerid}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromPublisher(findAllPlayerUseCase.findAll(), PlayerDTO.class))
-        );
+                        .body(BodyInserters.fromPublisher(
+                                findPlayerByIdUseCase.findById(request.pathVariable
+                                        ("playerid")), PlayerDTO.class))
+                );
     }
+
 }
