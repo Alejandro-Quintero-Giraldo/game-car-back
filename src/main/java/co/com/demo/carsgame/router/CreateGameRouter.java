@@ -1,7 +1,7 @@
 package co.com.demo.carsgame.router;
 
 import co.com.demo.carsgame.dto.GameDTO;
-import co.com.demo.carsgame.useCase.CreateGameUseCase;
+import co.com.demo.carsgame.useCase.actions.CreateGameUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;

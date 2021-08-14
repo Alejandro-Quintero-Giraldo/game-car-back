@@ -6,13 +6,12 @@ import co.com.demo.carsgame.domain.game.values.id.DriverId;
 import co.com.demo.carsgame.domain.game.values.id.PlayerId;
 import co.com.demo.carsgame.domain.game.values.id.RailId;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @AllArgsConstructor
-@Getter
 @Document(collection = "Driver")
 public class Driver {
 
@@ -23,4 +22,24 @@ public class Driver {
     private final RailId railId;
     private final CarId carId;
 
+
+    public DriverId getDriverId() {
+        return driverId;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public PlayerId getPlayerId() {
+        return playerId;
+    }
+
+    public RailId getRailId() {
+        return railId;
+    }
+
+    public CarId getCarId() {
+        return carId;
+    }
 }

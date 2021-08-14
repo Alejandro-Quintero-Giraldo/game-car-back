@@ -6,14 +6,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@AllArgsConstructor
 @Data
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Document(collection = "Driver")
 public class DriverDTO {
     @Id
-    private final String driverId;
-    private final Integer position;
-    private final String playerId;
-    private final String railId;
-    private final String carId;
+    private  String driverId;
+    private Integer position;
+    private  String playerId;
+    private  String railId;
+    private  String carId;
+
 }

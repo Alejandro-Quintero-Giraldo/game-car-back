@@ -1,4 +1,4 @@
-package co.com.demo.carsgame.useCase;
+package co.com.demo.carsgame.useCase.actions;
 
 import co.com.demo.carsgame.domain.game.Track;
 import co.com.demo.carsgame.dto.GameDTO;

@@ -1,4 +1,4 @@
-package co.com.demo.carsgame.useCase;
+package co.com.demo.carsgame.useCase.actions;
 
 import co.com.demo.carsgame.dto.PlayerDTO;
 import co.com.demo.carsgame.mapper.PlayerMapper;
@@ -23,9 +23,7 @@ public class CreatePlayerUseCase{
 
     public Mono<PlayerDTO> apply(PlayerDTO playerDTO) {
         return playerDTORepository
-                        .save(playerMapper.mapperToPlayer(playerDTO.getPlayerId())
-                        .apply(playerDTO))
+                        .save(playerDTO)
                         .thenReturn(playerDTO);
-
     }
 }

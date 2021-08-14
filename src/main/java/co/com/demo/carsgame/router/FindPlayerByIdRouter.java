@@ -1,7 +1,7 @@
 package co.com.demo.carsgame.router;
 
 import co.com.demo.carsgame.dto.PlayerDTO;
-import co.com.demo.carsgame.useCase.queries.GetPlayersByGameIdUseCase;
+import co.com.demo.carsgame.useCase.queries.FindPlayerByIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -14,14 +14,17 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 @Configuration
-public class GetPlayersByGameIdRouter {
+public class FindPlayerByIdRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> getPlayersByGameId(GetPlayersByGameIdUseCase getPlayersByGameIdUseCase){
-        return route(GET("/get/players/game/id/{gameid}").and(accept(MediaType.TEXT_PLAIN)),
+    public RouterFunction<ServerResponse> getPlayerById(FindPlayerByIdUseCase findPlayerByIdUseCase){
+        return  route(GET("/get/player/by/id/{playerid}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromPublisher(getPlayersByGameIdUseCase.getPlayersByGameId(request.pathVariable("gameid")), PlayerDTO.class))
+                        .body(BodyInserters.fromPublisher(
+                                findPlayerByIdUseCase.findById(request.pathVariable
+                                        ("playerid")), PlayerDTO.class))
                 );
     }
+
 }
