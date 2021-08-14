@@ -7,9 +7,11 @@ import co.com.demo.carsgame.domain.game.values.id.TrackId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Setter
 @Getter
 @AllArgsConstructor
 @RequiredArgsConstructor
@@ -17,9 +19,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Track {
 
     @Id
-    private TrackId trackId;
-    private TrackDistance trackDistance;
-    private GameId gameId;
-    private PodiumId podiumId;
+    private String trackId;
+    private Integer trackDistance;
+    private String gameId;
+    private String podiumId;
 
 }

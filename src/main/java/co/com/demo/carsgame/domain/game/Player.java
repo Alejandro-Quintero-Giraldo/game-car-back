@@ -1,16 +1,13 @@
 package co.com.demo.carsgame.domain.game;
 
-import co.com.demo.carsgame.domain.game.values.Name;
-import co.com.demo.carsgame.domain.game.values.QuantityWinnerPosition;
-import co.com.demo.carsgame.domain.game.values.id.DriverId;
-import co.com.demo.carsgame.domain.game.values.id.GameId;
-import co.com.demo.carsgame.domain.game.values.id.PlayerId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Setter
 @Getter
 @AllArgsConstructor
 @RequiredArgsConstructor
@@ -18,11 +15,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Player {
 
     @Id
-    private PlayerId playerId;
-    private Name name;
-    private QuantityWinnerPosition firstPlace;
-    private QuantityWinnerPosition secondPlace;
-    private QuantityWinnerPosition thirdPlace;
-    private GameId gameId;
-    private DriverId driverId;
+    private String playerId;
+    private String name;
+    private Integer firstPlace;
+    private Integer secondPlace;
+    private Integer thirdPlace;
+    private String gameId;
+    private String driverId;
 }

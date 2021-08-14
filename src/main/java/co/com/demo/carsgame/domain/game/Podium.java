@@ -1,14 +1,13 @@
 package co.com.demo.carsgame.domain.game;
 
-import co.com.demo.carsgame.domain.game.values.WinnerPosition;
-import co.com.demo.carsgame.domain.game.values.id.GameId;
-import co.com.demo.carsgame.domain.game.values.id.PodiumId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Setter
 @Getter
 @AllArgsConstructor
 @RequiredArgsConstructor
@@ -16,9 +15,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Podium {
 
     @Id
-    private PodiumId podiumId;
-    private WinnerPosition firstPlace;
-    private WinnerPosition secondPlace;
-    private WinnerPosition thirdPlace;
-    private GameId gameId;
+    private String podiumId;
+    private String firstPlace;
+    private String secondPlace;
+    private String thirdPlace;
+    private String gameId;
 }
