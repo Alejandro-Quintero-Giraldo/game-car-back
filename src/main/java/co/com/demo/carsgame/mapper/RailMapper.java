@@ -1,9 +1,6 @@
 package co.com.demo.carsgame.mapper;
 
 import co.com.demo.carsgame.domain.game.Rail;
-import co.com.demo.carsgame.domain.game.values.Advance;
-import co.com.demo.carsgame.domain.game.values.CurrentPosition;
-import co.com.demo.carsgame.domain.game.values.id.*;
 import co.com.demo.carsgame.dto.RailDTO;
 import org.springframework.stereotype.Component;
 
@@ -13,22 +10,24 @@ import java.util.function.Function;
 public class RailMapper {
 
     public Function<RailDTO, Rail> mapperToRail(String id){
-        return updateRail -> new Rail(
-                RailId.of(id),
-                CarId.of(updateRail.getCarId()),
-                GameId.of(updateRail.getGameId()),
-                TrackId.of(updateRail.getTrackId()),
-              DriverId.of(updateRail.getDriverId())
-        );
+        return updateRail -> {
+            Rail rail = new Rail();
+            rail.setRailId(id);
+            rail.setCarId(updateRail.getCarId());
+            rail.setGameId(updateRail.getGameId());
+            rail.setTrackId(updateRail.getTrackId());
+            rail.setDriverId(updateRail.getDriverId());
+            return  rail;
+        };
     }
 
-    public Function<Rail,RailDTO> mapperToDTO(){
+    public Function<Rail,RailDTO> mapperToRailDTO(){
         return rail -> new RailDTO(
-                rail.getRailId().getValue(),
-                rail.getCarId().getValue(),
-                rail.getGameId().getValue(),
-                rail.getTrackId().getValue(),
-                rail.getDriverId().getValue()
+                rail.getRailId(),
+                rail.getCarId(),
+                rail.getGameId(),
+                rail.getTrackId(),
+                rail.getDriverId()
         );
     }
 }

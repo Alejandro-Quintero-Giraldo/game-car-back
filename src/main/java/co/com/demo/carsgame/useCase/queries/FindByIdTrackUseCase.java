@@ -1,6 +1,7 @@
 package co.com.demo.carsgame.useCase.queries;
 
 import co.com.demo.carsgame.dto.TrackDTO;
+import co.com.demo.carsgame.mapper.TrackMapper;
 import co.com.demo.carsgame.repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,13 +13,18 @@ import reactor.core.publisher.Mono;
 public class FindByIdTrackUseCase {
 
     private final TrackRepository trackRepository;
+    private final TrackMapper trackMapper;
 
     @Autowired
-    public FindByIdTrackUseCase(TrackRepository trackRepository) {
+    public FindByIdTrackUseCase(TrackRepository trackRepository, TrackMapper trackMapper) {
         this.trackRepository = trackRepository;
+        this.trackMapper = trackMapper;
     }
 
     public Mono<TrackDTO> getfindbyid(String id){
-        return trackRepository.findById(id);
+        return trackRepository.findById(id)
+                .flatMap(
+                        track -> Mono.just(trackMapper.mapperToTrackDTO().apply(track))
+                );
     }
 }

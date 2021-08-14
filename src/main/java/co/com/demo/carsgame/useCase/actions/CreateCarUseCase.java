@@ -23,7 +23,8 @@ public class CreateCarUseCase {
 
     public Mono<CarDTO> createCar(CarDTO carDTO) {
         return carRepository
-                .save(carDTO)
-                .thenReturn(carDTO);
+                .save(carMapper.mapperToCar(carDTO.getId())
+                        .apply(carDTO))
+                .map(carMapper.mappertoCarDTO());
     }
 }

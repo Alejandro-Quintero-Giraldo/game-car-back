@@ -23,8 +23,8 @@ public class EditDriverUseCase {
     }
 
     public Mono<DriverDTO> modifyDriver(DriverDTO driverDTO){
-        return
-                driverRepository.save(driverDTO)
-                        .thenReturn(driverDTO);
+        return driverRepository.save(driverMapper.mapperToDriver(driverDTO.getDriverId())
+                        .apply(driverDTO))
+                .map(driverMapper.mapperToDriverDTO());
     }
 }

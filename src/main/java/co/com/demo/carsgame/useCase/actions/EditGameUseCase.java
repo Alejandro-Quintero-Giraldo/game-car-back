@@ -1,6 +1,7 @@
 package co.com.demo.carsgame.useCase.actions;
 
 import co.com.demo.carsgame.dto.GameDTO;
+import co.com.demo.carsgame.mapper.GameMapper;
 import co.com.demo.carsgame.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,15 +13,17 @@ import reactor.core.publisher.Mono;
 public class EditGameUseCase {
 
     private final GameRepository gameRepository;
+    private final GameMapper gameMapper;
 
     @Autowired
-    public EditGameUseCase(GameRepository gameRepository) {
+    public EditGameUseCase(GameRepository gameRepository, GameMapper gameMapper) {
         this.gameRepository = gameRepository;
+        this.gameMapper = gameMapper;
     }
 
     public Mono<GameDTO> modifyGame(GameDTO gameDTO){
-        return
-                gameRepository.save(gameDTO)
-                        .thenReturn(gameDTO);
+        return gameRepository.save(gameMapper.mapperToGame(gameDTO.getGameId())
+                        .apply(gameDTO))
+                .map(gameMapper.mapperToGameDTO());
     }
 }

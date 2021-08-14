@@ -14,17 +14,18 @@ public class EditCarUseCase {
 
 
     private final CarRepository carRepository;
-    private final CarMapper carMapperc;
+    private final CarMapper carMapper;
 
     @Autowired
-    public EditCarUseCase(CarRepository carRepository, CarMapper carMapperc) {
+    public EditCarUseCase(CarRepository carRepository, CarMapper carMapper) {
         this.carRepository = carRepository;
-        this.carMapperc = carMapperc;
+        this.carMapper = carMapper;
     }
 
     public Mono<CarDTO> modifyCar(CarDTO carDTO){
-        return
-                carRepository.save(carDTO)
-                        .thenReturn(carDTO);
+        return carRepository
+                .save(carMapper.mapperToCar(carDTO.getId())
+                        .apply(carDTO))
+                .map(carMapper.mappertoCarDTO());
     }
 }

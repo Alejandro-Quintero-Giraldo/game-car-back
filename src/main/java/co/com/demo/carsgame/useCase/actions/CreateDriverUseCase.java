@@ -11,18 +11,18 @@ import reactor.core.publisher.Mono;
 @Service
 @Validated
 public class CreateDriverUseCase {
-    private final DriverRepository driverDTORepository;
+    private final DriverRepository driverRepository;
     private final DriverMapper driverMapper;
 
     @Autowired
-    public CreateDriverUseCase(DriverRepository driverDTORepository, DriverMapper driverMapper) {
-        this.driverDTORepository = driverDTORepository;
+    public CreateDriverUseCase(DriverRepository driverRepository, DriverMapper driverMapper) {
+        this.driverRepository = driverRepository;
         this.driverMapper = driverMapper;
     }
 
     public Mono<DriverDTO> apply(DriverDTO driverDTO) {
-        return driverDTORepository
-                .save(driverDTO)
-                .thenReturn(driverDTO);
+        return driverRepository.save(driverMapper.mapperToDriver(driverDTO.getDriverId())
+                .apply(driverDTO))
+                .map(driverMapper.mapperToDriverDTO());
     }
 }

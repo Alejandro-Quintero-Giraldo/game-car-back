@@ -20,6 +20,9 @@ public class FindAllPlayerUseCase {
     }
 
     public Flux<PlayerDTO> findAll(){
-        return playerRepository.findAll();
+        return playerRepository.findAll()
+                .flatMap(
+                        player -> Flux.just(playerMapper.mapperToPlayerDTO().apply(player))
+                );
     }
 }

@@ -1,11 +1,6 @@
 package co.com.demo.carsgame.mapper;
 
 import co.com.demo.carsgame.domain.game.Player;
-import co.com.demo.carsgame.domain.game.values.Name;
-import co.com.demo.carsgame.domain.game.values.QuantityWinnerPosition;
-import co.com.demo.carsgame.domain.game.values.id.DriverId;
-import co.com.demo.carsgame.domain.game.values.id.GameId;
-import co.com.demo.carsgame.domain.game.values.id.PlayerId;
 import co.com.demo.carsgame.dto.PlayerDTO;
 import org.springframework.stereotype.Component;
 
@@ -15,26 +10,28 @@ import java.util.function.Function;
 public class PlayerMapper {
 
     public Function<PlayerDTO, Player> mapperToPlayer(String id){
-        return updatePlayer -> new Player(
-                PlayerId.of(id),
-                new Name(updatePlayer.getName()),
-                new QuantityWinnerPosition(updatePlayer.getFirstPlace()),
-                new QuantityWinnerPosition(updatePlayer.getSecondPlace()),
-                new QuantityWinnerPosition(updatePlayer.getThirdPlace()),
-                GameId.of(updatePlayer.getGameId()),
-                DriverId.of(updatePlayer.getDriverId())
-        );
+        return updatePlayer -> {
+            Player player = new Player();
+            player.setPlayerId(id);
+            player.setName(updatePlayer.getName());
+            player.setFirstPlace(updatePlayer.getFirstPlace());
+            player.setSecondPlace(updatePlayer.getSecondPlace());
+            player.setThirdPlace(updatePlayer.getThirdPlace());
+            player.setGameId(updatePlayer.getGameId());
+            player.setDriverId(updatePlayer.getDriverId());
+            return player;
+        };
     }
 
-    public Function<Player,PlayerDTO> mapperToDTO(){
+    public Function<Player,PlayerDTO> mapperToPlayerDTO(){
         return player -> new PlayerDTO(
-                player.getPlayerId().getValue(),
-                player.getName().getValue(),
-                player.getFirstPlace().getValue(),
-                player.getSecondPlace().getValue(),
-                player.getThirdPlace().getValue(),
-                player.getGameId().getValue(),
-                player.getDriverId().getValue()
+                player.getPlayerId(),
+                player.getName(),
+                player.getFirstPlace(),
+                player.getSecondPlace(),
+                player.getThirdPlace(),
+                player.getGameId(),
+                player.getDriverId()
         );
     }
 }

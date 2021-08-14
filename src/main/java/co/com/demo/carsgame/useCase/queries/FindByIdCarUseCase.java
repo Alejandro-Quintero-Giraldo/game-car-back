@@ -24,6 +24,9 @@ public class FindByIdCarUseCase {
 
 
     public Mono<CarDTO> findById(String id) {
-        return carRepository.findById(id);
+        return carRepository.findById(id)
+                .flatMap( car ->
+                        Mono.just(carMapper.mappertoCarDTO().apply(car))
+                );
     }
 }

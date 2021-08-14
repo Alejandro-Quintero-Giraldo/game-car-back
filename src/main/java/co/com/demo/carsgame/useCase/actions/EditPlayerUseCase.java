@@ -22,10 +22,10 @@ public class EditPlayerUseCase {
     }
 
     public Mono<PlayerDTO> modifyPlayer(PlayerDTO playerDTO){
-        return
-                playerRepository.save(playerDTO)
-                        .thenReturn(playerDTO);
-
+        return  playerRepository
+                .save(playerMapper.mapperToPlayer(playerDTO.getPlayerId())
+                        .apply(playerDTO))
+                .map(playerMapper.mapperToPlayerDTO());
     }
 
 }
