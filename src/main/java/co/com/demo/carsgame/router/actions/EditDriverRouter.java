@@ -13,7 +13,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 @Configuration
 public class EditDriverRouter {
-
+/*
     @Bean
     public RouterFunction<ServerResponse> modifyDriver(EditDriverUseCase editDriverUseCase){
         return route(PUT("/driver/edit").and(accept(MediaType.APPLICATION_JSON)),
@@ -23,5 +23,5 @@ public class EditDriverRouter {
                                         .bodyValue(result))
                         )
         );
-    }
+    }*/
 }

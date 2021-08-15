@@ -22,10 +22,10 @@ public class EditCarUseCase {
         this.carMapper = carMapper;
     }
 
-    public Mono<CarDTO> modifyCar(CarDTO carDTO){
-        return carRepository
+    public void modifyCar(CarDTO carDTO){
+        carRepository
                 .save(carMapper.mapperToCar(carDTO.getId())
                         .apply(carDTO))
-                .map(carMapper.mappertoCarDTO());
+                .subscribe();
     }
 }

@@ -21,10 +21,10 @@ public class CreateCarUseCase {
         this.carMapper = carMapper;
     }
 
-    public Mono<CarDTO> createCar(CarDTO carDTO) {
-        return carRepository
+    public void  createCar(CarDTO carDTO) {
+         carRepository
                 .save(carMapper.mapperToCar(carDTO.getId())
                         .apply(carDTO))
-                .map(carMapper.mappertoCarDTO());
+                .subscribe();
     }
 }

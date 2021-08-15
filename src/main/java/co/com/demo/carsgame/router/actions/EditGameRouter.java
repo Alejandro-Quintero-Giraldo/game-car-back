@@ -13,7 +13,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 @Configuration
 public class EditGameRouter {
-
+/*
     @Bean
     public RouterFunction<ServerResponse> modifyGame(EditGameUseCase editGameUseCase){
         return route(PUT("/game/edit").and(accept(MediaType.APPLICATION_JSON)),
@@ -23,5 +23,5 @@ public class EditGameRouter {
                                         .bodyValue(result))
                         )
         );
-    }
+    }*/
 }

@@ -20,9 +20,9 @@ public class CreateDriverUseCase {
         this.driverMapper = driverMapper;
     }
 
-    public Mono<DriverDTO> apply(DriverDTO driverDTO) {
-        return driverRepository.save(driverMapper.mapperToDriver(driverDTO.getDriverId())
+    public void apply(DriverDTO driverDTO) {
+         driverRepository.save(driverMapper.mapperToDriver(driverDTO.getDriverId())
                 .apply(driverDTO))
-                .map(driverMapper.mapperToDriverDTO());
+                 .subscribe();
     }
 }

@@ -21,9 +21,9 @@ public class EditGameUseCase {
         this.gameMapper = gameMapper;
     }
 
-    public Mono<GameDTO> modifyGame(GameDTO gameDTO){
-        return gameRepository.save(gameMapper.mapperToGame(gameDTO.getGameId())
+    public void editGame(GameDTO gameDTO){
+         gameRepository.save(gameMapper.mapperToGame(gameDTO.getGameId())
                         .apply(gameDTO))
-                .map(gameMapper.mapperToGameDTO());
+                 .subscribe();
     }
 }

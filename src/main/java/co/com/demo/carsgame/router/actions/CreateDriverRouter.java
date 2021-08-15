@@ -13,7 +13,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 @Configuration
 public class CreateDriverRouter {
-
+/*
     @Bean
     public RouterFunction<ServerResponse> createDriver(CreateDriverUseCase createDriverUseCase){
         return  route(POST("/driver/create").and(accept(MediaType.APPLICATION_JSON)),
@@ -24,5 +24,5 @@ public class CreateDriverRouter {
                                         .bodyValue(result))
                         )
         );
-    }
+    }*/
 }

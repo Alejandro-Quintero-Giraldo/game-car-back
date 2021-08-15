@@ -13,7 +13,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 @Configuration
 public class CreateRailRouter {
-
+/*
     @Bean
     public RouterFunction<ServerResponse> createRail(CreateRailUseCase createRailUseCase) {
         return route(POST("/rail/create").and(accept(MediaType.APPLICATION_JSON)),
@@ -24,5 +24,5 @@ public class CreateRailRouter {
                                         .bodyValue(result))
                         )
         );
-    }
+    }*/
 }

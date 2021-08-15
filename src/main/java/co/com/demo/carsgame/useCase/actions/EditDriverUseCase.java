@@ -22,9 +22,9 @@ public class EditDriverUseCase {
         this.driverMapper = driverMapper;
     }
 
-    public Mono<DriverDTO> modifyDriver(DriverDTO driverDTO){
-        return driverRepository.save(driverMapper.mapperToDriver(driverDTO.getDriverId())
+    public void modifyDriver(DriverDTO driverDTO){
+         driverRepository.save(driverMapper.mapperToDriver(driverDTO.getDriverId())
                         .apply(driverDTO))
-                .map(driverMapper.mapperToDriverDTO());
+                 .subscribe();
     }
 }

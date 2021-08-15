@@ -13,16 +13,17 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 @Configuration
 public class CreateGameRouter {
-
+/*
     @Bean
     public RouterFunction<ServerResponse> createGame(CreateGameUseCase createGameUseCase){
         return  route(POST("/game/create").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(GameDTO.class)
                         .flatMap(gameDTO -> createGameUseCase.createGame(gameDTO)
-                                .flatMap(result -> ServerResponse.ok()
-                                        .contentType(MediaType.APPLICATION_JSON)
+                               .flatMap(result -> ServerResponse.ok()
+                                       /* .contentType(MediaType.APPLICATION_JSON)
                                         .bodyValue(result))
-                        )
+                        ))
                 );
     }
+}*/
 }

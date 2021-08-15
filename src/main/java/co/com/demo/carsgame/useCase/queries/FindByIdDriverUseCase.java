@@ -21,7 +21,7 @@ public class FindByIdDriverUseCase {
         this.driverMapper = driverMapper;
     }
 
-    public Mono<DriverDTO> findById(String id) {
+    public Mono<DriverDTO> findByIdDriver(String id) {
         return driverRepository.findById(id)
                 .flatMap(
                         driver -> Mono.just(driverMapper.mapperToDriverDTO().apply(driver))

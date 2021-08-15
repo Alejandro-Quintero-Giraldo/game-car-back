@@ -21,9 +21,9 @@ public class CreateRailUseCase {
         this.railMapper = railMapper;
     }
 
-    public Mono<RailDTO> createRail(RailDTO railDTO){
-        return railRepository.save(railMapper.mapperToRail(railDTO.getRailId())
+    public void createRail(RailDTO railDTO){
+         railRepository.save(railMapper.mapperToRail(railDTO.getRailId())
                 .apply(railDTO))
-                .map(railMapper.mapperToRailDTO());
+                .subscribe();
     }
 }

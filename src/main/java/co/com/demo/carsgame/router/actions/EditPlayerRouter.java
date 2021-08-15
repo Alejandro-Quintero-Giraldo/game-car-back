@@ -12,7 +12,7 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 @Configuration
 public class EditPlayerRouter {
-
+/*
     @Bean
     public RouterFunction<ServerResponse> modifyPlayer(EditPlayerUseCase editPlayerUseCase){
         return route(PUT("/player/edit").and(accept(MediaType.APPLICATION_JSON)),
@@ -22,5 +22,5 @@ public class EditPlayerRouter {
                                         .bodyValue(result))
                         )
         );
-    }
+    }*/
 }

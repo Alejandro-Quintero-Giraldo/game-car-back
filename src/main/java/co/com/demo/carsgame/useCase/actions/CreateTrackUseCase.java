@@ -1,5 +1,6 @@
 package co.com.demo.carsgame.useCase.actions;
 
+import co.com.demo.carsgame.domain.game.Track;
 import co.com.demo.carsgame.dto.TrackDTO;
 import co.com.demo.carsgame.mapper.TrackMapper;
 import co.com.demo.carsgame.repository.TrackRepository;
@@ -21,9 +22,9 @@ public class CreateTrackUseCase {
         this.trackMapper = trackMapper;
     }
 
-    public Mono<TrackDTO> apply(TrackDTO trackDTO){
-        return trackRepository.save(trackMapper.mapperToTrack(trackDTO.getTrackId())
-                .apply(trackDTO))
-                .map(trackMapper.mapperToTrackDTO());
+    public void apply(TrackDTO trackDTO){
+         trackRepository.save(trackMapper.mapperToTrack(trackDTO.getTrackId())
+                        .apply(trackDTO))
+                .subscribe();
     }
 }

@@ -13,7 +13,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 @Configuration
 public class EditCarRouter {
-
+/*
     @Bean
     public RouterFunction<ServerResponse> modifyCar(EditCarUseCase editCarUseCasee){
         return route(PUT("/car/edit").and(accept(MediaType.APPLICATION_JSON)),
@@ -23,5 +23,5 @@ public class EditCarRouter {
                                         .bodyValue(result))
                         )
         );
-    }
+    }*/
 }

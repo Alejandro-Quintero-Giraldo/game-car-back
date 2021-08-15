@@ -21,11 +21,11 @@ public class EditPlayerUseCase {
         this.playerMapper = playerMapper;
     }
 
-    public Mono<PlayerDTO> modifyPlayer(PlayerDTO playerDTO){
-        return  playerRepository
+    public void modifyPlayer(PlayerDTO playerDTO){
+          playerRepository
                 .save(playerMapper.mapperToPlayer(playerDTO.getPlayerId())
                         .apply(playerDTO))
-                .map(playerMapper.mapperToPlayerDTO());
+                .subscribe();
     }
 
 }

@@ -12,7 +12,7 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 @Configuration
 public class CreateCarRouter {
-
+/*
     @Bean
     public RouterFunction<ServerResponse> CreateCarRouter(CreateCarUseCase createCarUseCase){
         return  route(POST("/car/create").and(accept(MediaType.APPLICATION_JSON)),
@@ -23,5 +23,5 @@ public class CreateCarRouter {
                                         .bodyValue(result))
                         )
         );
-    }
+    }*/
 }
